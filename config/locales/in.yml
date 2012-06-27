@@ -1,0 +1,32 @@
+in:
+
+  layouts:
+    application:
+      title:     "विश्वव्यापी पुस्तकालय"
+      orders:    "हुक्म"
+      products:  "उत्पाद "
+      users:      "उपभोक्ता"
+      home:      "घर"
+      question: "सवाल"
+
+  buyer:
+    catalog:
+      title_html: "विश्वव्यापी सामग्री"
+      add_html:   "यादी मैं जोड़े"
+
+  carts:
+    cart:
+      title:    "आपकी यादी"
+      checkout: "जाँच"
+      empty:    "खाली"
+
+  orders:
+    new:
+      legend:   "कृपया आपकी जानकारी भरें"
+    form:
+      name:           "नाम"
+      address_html:   "पता"
+      email:          "विपत्र"
+      pay_type:       "रक़म अदा"
+      pay_prompt_html: "आपकी रक़म अदा करने का तरीका चुनें "
+      submit:         "हुक्म दे"

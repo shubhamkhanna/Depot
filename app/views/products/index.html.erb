@@ -1,0 +1,46 @@
+<div style="text-align: center;"><h1>Listing Books</h1></div>
+
+
+
+<table border="1" align="center">
+  <tr>
+    <th>Image</th>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Price$</th>
+  </tr>
+  
+
+<% @products.each do |product| %>
+
+<tr class="<%= cycle('list_line_odd', 'list_line_even') %>" >
+  <td><%= image_tag(product.image_url, :class => 'list_image')%></td>
+
+  <td class="list_description" >
+    <dl>
+      <dt><%= product.title %></dt>
+    </dl>
+ </td>
+
+ <td class="list_description">
+   <dl>
+      <dd><%= truncate(strip_tags(product.description), :length => 80) %></dd>
+   </dl>
+ </td>
+
+ <td><%= product.price%></td>
+ 
+ <td><%= link_to 'Show', product %><br />
+ <%= link_to 'Edit', edit_product_path(product) %><br />
+ <%= link_to 'Destroy', product, confirm: 'Are you sure?', method: :delete %></td><br/>
+
+</tr>
+
+    
+<% end %>
+</table>
+
+<br />
+
+<div style="text-align: center;"><%= link_to 'New Book', new_product_path %></div>
+

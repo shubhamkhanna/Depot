@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>Universal Book Depot</title>
+  <%= stylesheet_link_tag "scaffold" %>
+  <%= stylesheet_link_tag "depot", :media => "all" %>
+  <%= javascript_include_tag :application %>
+  <%= csrf_meta_tag %>
+    
+</head>
+
+<body id ="store" style="background-color: seashell;">
+
+  <div id="banner">
+  <%= image_tag("book.png")%>
+  <%= t('.title') %>
+   <%=form_tag buyer_catalog_path,:class=>'locale' do%>
+    <%=select_tag 'set_locale',options_for_select(LANGUAGES,I18n.locale.to_s),
+    :onchange=>'this.form.submit()'%>
+    <%=javascript_tag "$$('.locale input').each(Element.hide)"%>
+
+
+  <%end%>
+  </div>
+  
+<div style="float: right;">
+  <span>Hi <%= @current_user.name if @current_user %></span> &nbsp;&nbsp;&nbsp;&nbsp; <%= link_to "Logout", logout_path, :method => :delete %>
+</div>
+
+
+<div id="column">
+  <div id="side">
+   <div id="cart">
+     <% hidden_div_if((@cart.present? and @cart.line_items.empty?), :id => "cart") do %>
+         <%= render @cart %>
+     <% end %>
+  
+     <% if session[:user_id] %>
+      
+      <h4><%= link_to t('.orders'), orders_path %></h4>
+      <h4><%= link_to t('.products'), buyer_catalog_path %></h4>
+      <h4><%= link_to t('.users'), users_path %></h4>
+      <h4><%= link_to t('.home'), new_user_path %></h4>
+      <h4><%= link_to t('.question'), "http://www.google.com" %></h4>
+     <% end %>
+
+   </div>
+  </div>
+</div>
+
+<div id="main">
+  <%= yield %>
+</div>
+  
+
+
+</body>
+</html>

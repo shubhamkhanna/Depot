@@ -1,0 +1,36 @@
+<div align="center">
+  <h2>Listing Your Order</h2>
+</div>
+
+
+<% @total = 0 %>
+
+<table align="center" border="1">
+  <tr>
+    <th>Quantity</th>
+    <th>product title</th>
+    <th>Price</th>
+  </tr>
+
+<% @line_items.each do |line_item| %>
+  <tr>
+    <td><%= line_item.quantity %></td>
+    <td><%= line_item.product.title rescue "" %></td>
+    <td><%= @total_price = line_item.product.price * line_item.quantity%></td>
+    <%  @total = @total_price + @total %>
+  </tr>
+<% end %>
+  <tr>
+    <td></td>
+    <td>Total price</td>
+    <td><%= @total %></td>
+  </tr>
+</table>
+
+<br />
+
+<div align="center">
+  <%= button_to "Empty cart", {:action => "empty_cart"} , :confirm => "Are you sure?" %>
+</div>
+
+

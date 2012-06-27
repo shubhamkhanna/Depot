@@ -1,0 +1,14 @@
+<% @total = 0 %>
+
+  <tr>
+    <td><%= line_item.quantity %>&times;</td>
+    <td><%= line_item.product.title %></td>
+    <% total_price = line_item.product.price * line_item.quantity%>
+       <%  @total += total_price%>
+    <td><%= total_price %></td>
+  </tr>
+
+  
+
+
+

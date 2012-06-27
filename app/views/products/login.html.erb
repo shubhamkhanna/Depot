@@ -1,0 +1,29 @@
+
+<%  if @error.present? %>
+<div style ="color: red;">
+  <%= @error %>
+</div>
+<%  end %>
+
+<div style="text-align: center;"><h4>LOGIN PAGE</h4></div>
+
+<%= form_for @prod, :url => {:action =>"login"} do |f| %>
+<table border="0" align="center">
+  <tr>
+    <td><%= f.label :username,"Username:" %></td>
+    <td><%= f.text_field :username %></td>
+  </tr>
+
+  <tr>
+    <td><%= f.label :password,"Password:" %></td>
+    <td><%= f.password_field :password %></td>
+  </tr>
+
+  <tr>
+    <td><%= f.submit "submit" %></td>
+    <td><%= button_to "reset", :type => "clear" %></td>
+  </tr>
+
+</table>
+
+<% end %>

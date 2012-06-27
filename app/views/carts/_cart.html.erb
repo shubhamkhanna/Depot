@@ -1,0 +1,17 @@
+
+
+
+  <div class="cart_title"><%= t('.title')%></div>
+  <br />
+
+  <% @total = 0 %>
+  <table border="1">
+    <%= render (cart.line_items) %>
+  </table>
+    Total Price($)
+    <%= @total %>
+  <br />
+
+<%= button_to t('.checkout'), {:controller => "orders", :action => "new"}, :method => "get" %>
+<%= button_to t('.empty'), {:controller => "line_items",:action => "empty_cart"}, :confirm => "Are you sure?", :remote => true %>
+

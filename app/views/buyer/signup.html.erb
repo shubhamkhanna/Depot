@@ -1,0 +1,66 @@
+
+
+<%= form_for @buyer,:url => {:action => "signup"} do |f| %>
+  <% if @buyer.errors.present? %>
+    <div id="errorExplanation">
+      <h2><%= pluralize(@buyer.errors.count, "error") %> prohibited this user from being saved:</h2>
+      <ul>
+      <% @buyer.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+<%  end %>
+
+<div style="text-align: right;">
+  <%= link_to "sign_in", buyer_logon_path %>
+</div>
+
+<div style="text-align: center;">
+  <h4>SIGN-UP</h4>
+</div>
+
+  <table border="0" align ="center">
+    <tr>
+      <td><%= f.label :uname, "Username:" %></td>
+      <td><%= f.text_field :uname %></td>
+    </tr>
+
+    <tr>
+      <td><%= f.label :address, "Address:" %></td>
+      <td><%= f.text_area :address %></td>
+    </tr>
+
+    <tr>
+      <td><%= f.label :pass, "Password:" %></td>
+      <td><%= f.password_field :pass %></td>
+    </tr>
+
+    <tr>
+      <td><%= f.label :pass_confirmation, "Confirm Password:" %></td>
+      <td><%= f.password_field :pass_confirmation %></td>
+    </tr>
+
+    <tr>
+      <td><%= f.label :emailid, "Email id:" %></td>
+      <td><%= f.text_field :emailid %></td>
+    </tr>
+
+    <tr>
+      <td><%= f.label :phone, "Phone no:" %></td>
+      <td><%= f.text_field :phone %></td>
+    </tr>
+
+    <tr>
+      <td><%= f.submit :submit%></td>
+      <td><%= button_tag :reset, :type => "clear" %></td>
+    </tr>
+    
+  </table>
+<% end %>
+
+<br/>
+
+
+
+

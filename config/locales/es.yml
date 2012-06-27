@@ -1,0 +1,30 @@
+
+es:
+
+  layouts:
+    application:
+      title:     "Publicaciones de Pragmatic"
+      home:      "Inicio"
+      question: "Preguntas"
+
+  buyer:
+    catalog:
+      title_html: "Su Cat&aacute;logo de Pragmatic"
+      add_html:   "A&ntilde;adir al carrito"
+
+  carts:
+    cart:
+      title:    "Carrito de la Compra"
+      checkout: "Comprar"
+      empty:    "Vaciar Carrito"
+
+  orders:
+    new:
+      legend:   "por favor, introduzca sus datos"
+    form:
+      name:            "Nombre"
+      address_html:    "Direcci&oacute;n"
+      email:           "Email"
+      pay_type:        "Pagar con"
+      pay_prompt_html: "Seleccione un&acute;todo de pago"
+      submit:          "Realizar Pedido"
